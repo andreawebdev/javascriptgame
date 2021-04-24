@@ -1,20 +1,18 @@
 'use strict';
-
-
-
 let myAge = Math.trunc(Math.random() * 44) + 1;
+// let myAge = 10;
 
 
 let score = 5;
-// let highscore = 0;
+
 
 
 
 document.querySelector('.myBotton').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
-  // console.log(guess, typeof guess);
+  
 
-  // When there is no input
+  
   if (!guess) {
     document.querySelector('.message').textContent = '⛔️ Please insert a number between 25 and 55!';
 
@@ -22,6 +20,13 @@ document.querySelector('.myBotton').addEventListener('click', function () {
   else if (guess === myAge) {
     document.querySelector(".message").textContent =
       "🎉 Correct Number!You won!";
+
+
+    document.querySelector("body").style.backgroundColor="rgb(95,24,23)";
+    document.querySelector("audio").play()
+  
+ 
+ 
   } else if (guess < 0) {
     document.querySelector(".message").textContent = "Game Over!";
   } else if (guess > 55) {
@@ -37,6 +42,8 @@ document.querySelector('.myBotton').addEventListener('click', function () {
       document.querySelector(".score").textContent = score;
     } else {
       document.querySelector(".message").textContent = "Game Over!";
+       document.querySelector("#gameover").play();
+        document.querySelector("body").style.backgroundColor = "rgb(150,24,23)";
     }
   }
 
